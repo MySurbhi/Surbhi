@@ -1,70 +1,249 @@
 
-import { ServiceId, ServiceFeeItem } from './types';
+import { CompanyType, ChecklistsStructure, ServiceOptionsStructure } from './types';
 
-export const SERVICE_OPTIONS: ServiceFeeItem[] = [
-  { id: ServiceId.NONE, name: '--- Select a Service ---' },
-  {
-    id: ServiceId.ITR_2_YEAR,
-    name: 'ITR Filing 2 year',
-    details: {
-      itrLatePenalty: '1000/-',
-      professionalFees: '2000/-',
-      totalCharged: '3000/-',
-      referralFees: '300/-',
-      netPaymentToCA: '2700/-',
-    },
-  },
-  {
-    id: ServiceId.ITR_1_YEAR,
-    name: 'ITR filing 1 year',
-    details: {
-      itrLatePenalty: '0/-',
-      professionalFees: '1000/-',
-      totalCharged: '1000/-',
-      referralFees: '200/-',
-      netPaymentToCA: '800/-',
-    },
-  },
-  {
-    id: ServiceId.ITR_3_YEAR,
-    name: 'ITR filing 3 year',
-    details: {
-      itrLatePenalty: '2000/-',
-      professionalFees: '3000/-',
-      totalCharged: '5000/-',
-      referralFees: '450/-',
-      netPaymentToCA: '4550/-',
-    },
-  },
-  {
-    id: ServiceId.GST_REGISTRATION,
-    name: 'GST Registration',
-    details: {
-      professionalFees: '2500/-',
-      departmentCharges: '1500/- (tentative)',
-      totalCharged: '4000/-',
-      referralFees: '400/-',
-      netPaymentToCA: '3600/-',
-    },
-  },
-  {
-    id: ServiceId.SHOP_ACT_REGISTRATION,
-    name: 'Shop Act Registration',
-    details: {
-      professionalFees: '2000/-',
-      totalCharged: '2000/-',
-      referralFees: '200/-',
-      netPaymentToCA: '1800/-',
-    },
-  },
-  {
-    id: ServiceId.MSME_REGISTRATION,
-    name: 'MSME Registration',
-    details: {
-      professionalFees: '1000/-',
-      totalCharged: '1000/-',
-      referralFees: '200/-',
-      netPaymentToCA: '800/-',
-    },
-  },
+export const FIRM_NAME = "Surbhi H Jain & Associates";
+
+export const COMPANY_TYPES_ORDER: CompanyType[] = [
+  CompanyType.PRIVATE_LIMITED,
+  CompanyType.PUBLIC_LIMITED,
+  CompanyType.LLP,
+  CompanyType.PRODUCER,
+  CompanyType.SECTION_8,
+  CompanyType.NIDHI,
 ];
+
+export const SERVICE_OPTIONS: ServiceOptionsStructure = {
+  [CompanyType.PRIVATE_LIMITED]: [
+    "For private Limited company registration",
+    "For shifting of registered office within same city",
+    "For shifting of registered office within same state but different city",
+    "For Form INC-20A",
+    "For Addition of resident director",
+    "For Directors yearly KYC",
+    "For Form DPT-3",
+    "For Increase in Paid up Share Capital",
+    "For Increase in Authorized Share Capital",
+    "For Annual filings",
+    "For Closure of Private Limited Company",
+  ],
+  [CompanyType.PUBLIC_LIMITED]: [],
+  [CompanyType.LLP]: [
+    "For LLP registration",
+    "For shifting of registered office within same city",
+    "For shifting of registered office within same state but different city",
+    "For Addition of resident Designated Partner",
+    "For Designated Partners yearly KYC",
+    "For Form 8",
+    "For Form 11",
+    "For Closure of LLP",
+    "For Increase in Partner’s Capital",
+  ],
+  [CompanyType.PRODUCER]: [],
+  [CompanyType.SECTION_8]: [],
+  [CompanyType.NIDHI]: [],
+};
+
+export const CHECKLISTS: ChecklistsStructure = {
+  [CompanyType.PRIVATE_LIMITED]: {
+    "For private Limited company registration": {
+      type: 'list',
+      items: [
+        { id: 'plc_reg_1', text: 'Two Photos- All Directors/Members' },
+        { id: 'plc_reg_2', text: 'Copy of PAN Card - Signed - All Directors/Members' },
+        { id: 'plc_reg_3', text: 'Copy of Adhar Card- Signed - All Directors/ Members' },
+        { id: 'plc_reg_4', text: 'Copy of Address Proof (Anyone of following) - Signed- All Directors/ Members', subItems: [
+            'Bank Passbook with entries (Current month or Preceding month)',
+            'Electricity Bill (Current month or Preceding month)',
+            'Telephone Bill (Current month or Preceding month)',
+            'Mobile Bill (Current month or Preceding month)',
+          ]},
+        { id: 'plc_reg_5', text: 'Copy of Electricity Bill of Registered Office Address of Company (Current month or Preceding month)' },
+        { id: 'plc_reg_6', text: 'Four Proposed Names of Company' },
+        { id: 'plc_reg_7', text: 'Objects of Proposed Company' },
+        { id: 'plc_reg_8', text: 'Duration of Stay on Address Mentioned in Address Proof- All Director/Member' },
+        { id: 'plc_reg_9', text: 'Educational Qualification- All Director/Member' },
+        { id: 'plc_reg_10', text: 'Current Occupation- All Director/Member' },
+        { id: 'plc_reg_11', text: 'Current Mobile No. & E mail id – All Director/Member' },
+        { id: 'plc_reg_12', text: 'E- Mail id for Company' },
+        { id: 'plc_reg_13', text: 'Capital Contribution Total & Member wise' },
+      ],
+    },
+    "For shifting of registered office within same city": {
+      type: 'list',
+      items: [
+        { id: 'plc_shift_sc_1', text: 'Copy of Electricity Bill of Registered Office Address of Company (Current month)' },
+        { id: 'plc_shift_sc_2', text: 'Rent Agreement properly signed' },
+        { id: 'plc_shift_sc_3', text: 'New office External building photo with banner of company' },
+        { id: 'plc_shift_sc_4', text: 'Internal office photo with one director sitting who is making dsc certification on form' },
+        { id: 'plc_shift_sc_5', text: 'Digital signatures of one director required' },
+        { id: 'plc_shift_sc_6', text: 'Mobile no. and mail id for otp verification for dsc association' },
+      ],
+    },
+    "For shifting of registered office within same state but different city": {
+      type: 'list',
+      items: [
+        { id: 'plc_shift_sdc_1', text: 'Copy of Electricity Bill of Registered Office Address of Company (Current month)' },
+        { id: 'plc_shift_sdc_2', text: 'Rent Agreement properly signed' },
+        { id: 'plc_shift_sdc_3', text: 'New office External building photo with banner of company' },
+        { id: 'plc_shift_sdc_4', text: 'Internal office photo with one director sitting who is making dsc certification on form' },
+        { id: 'plc_shift_sdc_5', text: 'Digital signatures of one director required' },
+        { id: 'plc_shift_sdc_6', text: 'Mobile no. and mail id for otp verification for dsc association' },
+      ],
+    },
+    "For Form INC-20A": {
+      type: 'list',
+      items: [
+        { id: 'plc_inc20a_1', text: 'Registered office External building photo with banner of company' },
+        { id: 'plc_inc20a_2', text: 'Internal office photo with one director sitting who is making dsc certification on form' },
+        { id: 'plc_inc20a_3', text: 'Digital signatures of one director required' },
+        { id: 'plc_inc20a_4', text: 'Mobile no. and mail id for otp verification for dsc association' },
+        { id: 'plc_inc20a_5', text: 'Bank statement of company with capital entries' },
+        { id: 'plc_inc20a_6', text: 'MOA & AOA' },
+      ],
+    },
+    "For Addition of resident director": {
+      type: 'list',
+      items: [
+        { id: 'plc_add_dir_1', text: 'Signed Pan Card' },
+        { id: 'plc_add_dir_2', text: 'Signed Adhar Card' },
+        { id: 'plc_add_dir_3', text: 'Mail id' },
+        { id: 'plc_add_dir_4', text: 'Mobile No.' },
+        { id: 'plc_add_dir_5', text: 'Digital Signatures' },
+        { id: 'plc_add_dir_6', text: 'DIN(if any)' },
+        { id: 'plc_add_dir_7', text: 'One passport size photo' },
+        { id: 'plc_add_dir_8', text: 'Existing Director Digital Signatures' },
+        { id: 'plc_add_dir_9', text: 'One existing director contact number' },
+      ],
+    },
+    "For Directors yearly KYC": {
+      type: 'list',
+      items: [
+        { id: 'plc_dir_kyc_1', text: 'Signed Pan Card' },
+        { id: 'plc_dir_kyc_2', text: 'Signed Adhar Card' },
+        { id: 'plc_dir_kyc_3', text: 'Mail id for otp verification' },
+        { id: 'plc_dir_kyc_4', text: 'Mobile No. for otp verification' },
+        { id: 'plc_dir_kyc_5', text: 'Digital Signatures' },
+        { id: 'plc_dir_kyc_6', text: 'DIN' },
+        { id: 'plc_dir_kyc_7', text: 'One passport size photo' },
+      ],
+    },
+    "For Form DPT-3": {
+      type: 'image',
+      src: 'https://picsum.photos/seed/dpt3form/600/800', // Placeholder image. Replace with actual image URL.
+      alt: 'Form DPT-3 Checklist Requirements. Please replace this placeholder with the actual image.',
+    },
+    "For Increase in Paid up Share Capital": undefined,
+    "For Increase in Authorized Share Capital": undefined,
+    "For Annual filings": undefined,
+    "For Closure of Private Limited Company": undefined,
+  },
+  [CompanyType.LLP]: {
+    "For LLP registration": {
+        type: 'list',
+        items: [
+            { id: 'llp_reg_1', text: 'Passport size Photo- All Partners' },
+            { id: 'llp_reg_2', text: 'Copy of PAN Card - Signed - All Partners' },
+            { id: 'llp_reg_3', text: 'Copy of Adhar Card- Signed - All Partners' },
+            { id: 'llp_reg_4', text: 'Copy of Identity Proof (Anyone of following) - Signed- All Partners', subItems: [
+                'Voter Id',
+                'Driving License',
+                'Passport',
+            ]},
+            { id: 'llp_reg_5', text: 'Copy of Address Proof (Anyone of following) - All Partners', subItems: [
+                'Bank Passbook with entries (Current month or Preceding month)',
+                'Electricity Bill (Current month or Preceding month)',
+                'Telephone Bill (only BSNL) (Current month or Preceding month)',
+                'Mobile Bill (Current month or Preceding month)',
+            ]},
+            { id: 'llp_reg_6', text: 'Duration of Stay on Address Mentioned in Address Proof- All Partners' },
+            { id: 'llp_reg_7', text: 'Educational Qualification- All Partners' },
+            { id: 'llp_reg_8', text: 'Current Occupation- All Partners' },
+            { id: 'llp_reg_9', text: 'Copy of Electricity Bill of Registered Office Address of LLP (Current month or Preceding month)' },
+            { id: 'llp_reg_10', text: 'Four Proposed Names of LLP (E.g.- ABC Builders LLP)' },
+            { id: 'llp_reg_11', text: 'Objects/Business Activity of Proposed LLP' },
+            { id: 'llp_reg_12', text: 'Current Mobile No. & E mail id – All Partners' },
+            { id: 'llp_reg_13', text: 'E- Mail id for LLP' },
+            { id: 'llp_reg_14', text: 'Capital Contribution Total & Partner wise' },
+            { id: 'llp_reg_15', text: 'Profit Sharing Ratio' },
+        ],
+    },
+    "For shifting of registered office within same city": {
+        type: 'list',
+        items: [
+            { id: 'llp_shift_sc_1', text: 'Supplementary Partnership Deed with revised address( As per E-bill) and with requisite Stamp Duty paid' },
+            { id: 'llp_shift_sc_2', text: 'Copy of Electricity Bill of Registered Office Address of LLP (Current month)' },
+            { id: 'llp_shift_sc_3', text: 'Rent Agreement properly signed' },
+            { id: 'llp_shift_sc_4', text: 'New office External building photo with banner of LLP' },
+            { id: 'llp_shift_sc_5', text: 'Internal office photo with one partner sitting who is making dsc certification on form' },
+            { id: 'llp_shift_sc_6', text: 'Digital signatures of one partner required' },
+            { id: 'llp_shift_sc_7', text: 'Mobile no. and mail id for otp verification for dsc association' },
+        ],
+    },
+    "For shifting of registered office within same state but different city": {
+        type: 'list',
+        items: [
+            { id: 'llp_shift_sdc_1', text: 'Supplementary Partnership Deed with revised address( As per E-bill) and with requisite Stamp Duty paid' },
+            { id: 'llp_shift_sdc_2', text: 'Copy of Electricity Bill of Registered Office Address of LLP (Current month)' },
+            { id: 'llp_shift_sdc_3', text: 'Rent Agreement properly signed' },
+            { id: 'llp_shift_sdc_4', text: 'New office External building photo with banner of LLP' },
+            { id: 'llp_shift_sdc_5', text: 'Internal office photo with one partner sitting who is making dsc certification on form' },
+            { id: 'llp_shift_sdc_6', text: 'Digital signatures of one partner required' },
+            { id: 'llp_shift_sdc_7', text: 'Mobile no. and mail id for otp verification for dsc association' },
+        ],
+    },
+    "For Addition of resident Designated Partner": {
+        type: 'list',
+        items: [
+            { id: 'llp_add_dp_1', text: 'Signed Pan Card' },
+            { id: 'llp_add_dp_2', text: 'Signed Adhar Card' },
+            { id: 'llp_add_dp_3', text: 'Mail id' },
+            { id: 'llp_add_dp_4', text: 'Mobile No.' },
+            { id: 'llp_add_dp_5', text: 'Digital Signatures' },
+            { id: 'llp_add_dp_6', text: 'DIN(if any)' },
+            { id: 'llp_add_dp_7', text: 'One passport size photo' },
+            { id: 'llp_add_dp_8', text: 'Supplementary partnership deed properly signed and requisite stamp duty paid.' },
+            { id: 'llp_add_dp_9', text: 'Existing Partner Digital Signatures' },
+            { id: 'llp_add_dp_10', text: 'One existing partner contact number' },
+        ],
+    },
+    "For Designated Partners yearly KYC": {
+        type: 'list',
+        items: [
+            { id: 'llp_dp_kyc_1', text: 'Signed Pan Card' },
+            { id: 'llp_dp_kyc_2', text: 'Signed Adhar Card' },
+            { id: 'llp_dp_kyc_3', text: 'Mail id for otp verification' },
+            { id: 'llp_dp_kyc_4', text: 'Mobile No. for otp verification' },
+            { id: 'llp_dp_kyc_5', text: 'Digital Signatures' },
+            { id: 'llp_dp_kyc_6', text: 'DIN' },
+            { id: 'llp_dp_kyc_7', text: 'One passport size photo' },
+        ],
+    },
+    "For Form 8": {
+        type: 'list',
+        items: [
+            { id: 'llp_form8_1', text: 'Signed Audited Balance sheet (if applicable)' },
+            { id: 'llp_form8_2', text: 'Signed Audit Report (if applicable)' },
+            { id: 'llp_form8_3', text: 'Balance sheet in excel format' },
+            { id: 'llp_form8_4', text: 'Digital Signatures of both partners' },
+            { id: 'llp_form8_5', text: 'Auditor details-Associate/fellow (if audit applicable)' },
+            { id: 'llp_form8_6', text: 'Partners Signed Balance Sheet with complete notes for unaudited cases' },
+        ],
+    },
+    "For Form 11": {
+        type: 'list',
+        items: [
+            { id: 'llp_form11_1', text: 'Basic LLP Details (Master Data/COI)' },
+            { id: 'llp_form11_2', text: 'Supplementary partnership deed(if changes in capital and others)' },
+            { id: 'llp_form11_3', text: 'Whether Turnover exceeds 5 Cr. during the FY' },
+            { id: 'llp_form11_4', text: 'Digital Signatures of any one partners' },
+            { id: 'llp_form11_5', text: 'Mail id and mobile no. (if dsc association is required)' },
+        ],
+    },
+    "For Closure of LLP": undefined,
+    "For Increase in Partner’s Capital": undefined,
+  },
+  [CompanyType.PUBLIC_LIMITED]: {},
+  [CompanyType.PRODUCER]: {},
+  [CompanyType.SECTION_8]: {},
+  [CompanyType.NIDHI]: {},
+};

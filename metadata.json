@@ -1,5 +1,6 @@
-
 {
-  "name": "CA Firm Customized Fees Calculator",
-  "description": "A professional fees calculation tool for Surbhi H Jain & Associates. Users can select a service and view the corresponding fee breakdown."
+  "name": "CA Firm Checklist Solution",
+  "description": "A one-stop checklist solution for Surbhi H Jain & Associates, providing corporate compliance checklists for various company types and services. This tool helps streamline the process of finding and sharing task-specific checklists.",
+  "requestFramePermissions": [],
+  "prompt": ""
 }

@@ -1,5 +1,5 @@
 {
-  "name": "ca-firm-customized-fees-calculator",
+  "name": "ca-firm-checklist-solution",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "react-dom": "^19.1.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "jspdf": "2.5.1",
+    "html2canvas": "1.4.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

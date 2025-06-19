@@ -2,33 +2,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CA Firm Fees Calculator</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Custom font style for a more professional look if needed */
-    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
-    body {
-      font-family: 'Open Sans', sans-serif;
-    }
-    .font-fancy {
-      font-family: 'Merriweather', serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA Firm Checklist Solution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/heroicons/2.0.18/24/outline/academic-cap.svg" rel="stylesheet"> <!-- Example icon, not used but shows how to link external svgs if needed -->
 <script type="importmap">
 {
   "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
     "react/": "https://esm.sh/react@^19.1.0/",
     "react": "https://esm.sh/react@^19.1.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+    "jspdf": "https://esm.sh/jspdf@2.5.1",
+    "html2canvas": "https://esm.sh/html2canvas@1.4.1"
   }
 }
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-<body class="bg-gradient-to-br from-slate-900 to-slate-700 min-h-screen flex items-center justify-center p-4">
-  <div id="root" class="w-full"></div>
-<script type="module" src="/index.tsx"></script>
+<body class="bg-slate-100">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
